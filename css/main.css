@@ -1,0 +1,48 @@
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+
+
+.container-fluid {
+padding: 0 -15px ;
+width: 100vw;
+
+}
+.row1 div{
+background-color: yellow;
+height: 25vh;
+
+}
+.row2 div{
+background-color: ;
+height: 25vh;
+
+}
+.row3 div{
+background-color: blue;
+height: 25vh;
+
+}
+.row4 div{
+background-color: red;
+height: 25vh;
+
+}
