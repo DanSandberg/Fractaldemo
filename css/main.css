@@ -12,7 +12,8 @@
 @media (min-width:1200px @screen-lg-min) { ... }
 
 .container-fluid{
-  width: 100%;
+  padding: 0;
+  width: auto !important;
 }
 .top {
   height:15vh;
@@ -20,4 +21,13 @@
 h1 {
   margin: 0 auto;
   margin-top: 7.5vh;
+}
+.zoom {
+  overflow: hidden;
+}
+.backbutton {
+  position: absolute;
+  top:0;
+  left:2;
+  z-index: 3;
 }
