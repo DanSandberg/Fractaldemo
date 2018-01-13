@@ -22,12 +22,15 @@ h1 {
   margin: 0 auto;
   margin-top: 7.5vh;
 }
-.zoom {
-  overflow: hidden;
+#image1 {
+  z-index: 0;
+}
+.backimg{
+  z-index: 2;
 }
 .backbutton {
-  position: absolute;
-  top:0;
+  float: right;
+  bottom:0;
   left:2;
   z-index: 3;
 }
