@@ -21,7 +21,7 @@ $(document).ready(function(){
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 800, function(){
-   
+
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
       });
@@ -115,10 +115,10 @@ $(document).ready(function(){
 </svg>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-<div id="rundcontainer">    
+<div id="rundcontainer">
    <h1>Det klassiska webbmönstret</h1>
     <p>Z designen är det vanligaste för mönster på webben. Då våra ögon går från vänster till höger, så planerar man layouten efter detta vis</p>
-   <div class="overlay1"><img src="../images/zdesign.jpg" alt=""></div> 
+   <div class="overlay1"><img src="../images/zdesign.jpg" alt=""></div>
 </div>
 <div class="fclassen">
 <svg
@@ -190,7 +190,18 @@ $(document).ready(function(){
     <div class="overlay2"><img src="../images/fdesign.jpg" alt=""></div>
 </div>
 </div>
-<button class="button"><a href="#0">Top</a></button>
+<button class="button" ><a class="scrolltop" href="#0">Top</a>
+  <script>
+
+  $('.scrolltop').each(function(){
+    $(this).click(function(){
+        $('html,body').animate({ scrollTop: 0 }, 'slow');
+        return false;
+    });
+});
+
+  </script>
+</button>
 
 
 </body>

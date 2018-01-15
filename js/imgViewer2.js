@@ -20,7 +20,7 @@ var waitForFinalEvent = (function () {
 ;(function($) {
 	$.widget("wgm.imgViewer2", {
 		options: {
-			zoomStep: 0.1,
+			zoomStep: 0.2,
 			zoomMax: undefined,
 			zoomable: true,
 			dragable: true,
