@@ -2,7 +2,7 @@ $("#image1").imgViewer2({
 
   // zoom step
 
-  zoomStep: 0.5,
+  zoomStep: 0.2,
 
 
 

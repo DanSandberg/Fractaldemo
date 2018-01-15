@@ -11,6 +11,12 @@
 
 @media (min-width:1200px @screen-lg-min) { ... }
 
+body {
+  height: auto;
+  width:100vw;
+}
+
+
 .container-fluid{
   padding: 0;
   width: auto !important;
@@ -25,12 +31,10 @@ h1 {
 #image1 {
   z-index: 0;
 }
-.backimg{
-  z-index: 2;
-}
+
 .backbutton {
   float: right;
   bottom:0;
-  left:2;
+  right: 0.5vw;
   z-index: 3;
 }
