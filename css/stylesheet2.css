@@ -1,4 +1,10 @@
-svg {
+body {
+  height: auto;
+  width: 100vw;
+  background-color: #f2eee3;
+  }
+
+  svg {
     stroke: #000;
     stroke-width: 10;
     stroke-dasharray: 600px;
@@ -95,10 +101,7 @@ svg {
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-html {
-    height: 100%;
-    background: #f2eee3;
-}
+
 
 nav ul {
     text-align: center;
@@ -145,11 +148,11 @@ li a:hover {
     float: left;
 }
 .button{
-    width: 5vw;
-    height: 3vh;
+    width: 6vw;
+    height: 4vh;
     position: fixed;
     z-index: 3;
-    margin-left: 90%;
-    margin-top: 37%;
-    
+    bottom: 1vh;
+    right: 4vw;
+
 }
