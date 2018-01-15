@@ -30,9 +30,13 @@ svg {
 }
 #rundcontainer h1{
     z-index: 2;
+    padding: 3vw;
 }
 #rundcontainer p{
     z-index: 2;
+    
+    padding: 1vw;
+    
 }
 .overlay1 {
   position: static;
@@ -45,11 +49,26 @@ svg {
   opacity: 0;
     z-index: -1;
 }
+.overlay2 {
+  position: static;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+    z-index: -1;
+}
+
+#rundcontainer2:hover .overlay2{
+    opacity: 1;
+}
 
 #rundcontainer:hover .overlay1{
     opacity: 1;
 }
-.rundcontainer2{
+#rundcontainer2{
     float: left;
     background-color:rgba(0, 120, 140, 0.6);
     height: 25vw;
@@ -59,10 +78,10 @@ svg {
     text-align: center;
     font-family: "Open Sans";
 }
-.rundcontainer2 h1{
+#rundcontainer2 h1{
     margin: 3vw;
 }
-.rundcontainer2 p{
+#rundcontainer2 p{
     padding: 3vw;
 }
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
