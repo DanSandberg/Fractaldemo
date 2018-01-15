@@ -11,10 +11,14 @@
 
 @media (min-width:1200px @screen-lg-min) { ... }
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 body {
   height: auto;
   width:100vw;
   background-color: #f2eee3;
+  font-family:"Open Sans";
+  text-transform: uppercase;
 }
 
 
@@ -45,11 +49,4 @@ h1 {
 .row.no-gutters > [class*=" col-"] {
   padding-right: 0;
   padding-left: 0;
-}
-
-.toksidanimg {
-
-}
-#Fractalzoom {
-
 }

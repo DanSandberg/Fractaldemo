@@ -35,6 +35,7 @@ body {
     text-align: center;
     font-family: "Open Sans";
     z-index: 0;
+    box-shadow: 0vh 2vh 2vh 0vh #d6d1b0;
 }
 
 #rundcontainer h1 {
@@ -86,10 +87,11 @@ body {
     background-color: rgba(0, 120, 140, 0.6);
     height: 25vw;
     width: 25vw;
-    margin-top: 0vh;
+    margin-top: 22.4vh;
     border-radius: 50%;
     text-align: center;
     font-family: "Open Sans";
+    box-shadow: 0vh 2vh 2vh 0vh #d6d1b0;
 }
 
 #rundcontainer2 h1 {

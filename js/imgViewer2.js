@@ -14,9 +14,8 @@ var waitForFinalEvent = (function () {
 		timers[uniqueId] = setTimeout(callback, ms);
 	};
 })();
-/*
- *	imgViewer2 plugin starts here
- */
+
+
 ;(function($) {
 	$.widget("wgm.imgViewer2", {
 		options: {
@@ -40,45 +39,35 @@ var waitForFinalEvent = (function () {
             } else {
                 self.img = self.element[0];
 			}
-//		the original img element
+
 			var $img = $(self.img);
-/*
- *		a copy of the original image to be positioned over it and manipulated to
- *		provide zoom and pan
- */
+
 			self.view = $("<div class='viewport' />").uniqueId().appendTo("body");
 			var $view = $(self.view);
 			self.map  = {};
 			self.bounds = {};
-//		a flag used to check the target image has loaded
+
 			self.ready = false;
 			self.resize = false;
 			$img.one("load",function() {
-//			get and some geometry information about the image
+
 				self.ready = true;
 				var	width = $img.width(),
 					height = $img.height(),
 					offset = $img.offset();
-//			cache the image padding information
+
 					self.offsetPadding = {
 							top: parseInt($img.css('padding-top'),10),
 							left: parseInt($img.css('padding-left'),10),
 							right: parseInt($img.css('padding-right'),10),
 							bottom: parseInt($img.css('padding-bottom'),10)
 					};
-/*
- *			cache the image margin/border size information
- *			because of IE8 limitations left and right borders are assumed to be the same width
- *			and likewise top and bottom borders
- */
+
 					self.offsetBorder = {
 							x: Math.round(($img.outerWidth()-$img.innerWidth())/2),
 							y: Math.round(($img.outerHeight()-$img.innerHeight())/2)
 					};
-/*
- *			define the css style for the view container using absolute positioning to
- *			put it directly over the original image
- */
+
 					var vTop = offset.top + self.offsetBorder.y + self.offsetPadding.top,
 						vLeft = offset.left + self.offsetBorder.x + self.offsetPadding.left;
 
@@ -90,7 +79,7 @@ var waitForFinalEvent = (function () {
 								width: width+"px",
 								height: height+"px"
 					});
-//			add the leaflet map
+
 					self.bounds = L.latLngBounds(L.latLng(0,0), L.latLng(self.img.naturalHeight,self.img.naturalWidth));
 					self.map = L.map($view.attr('id'), {crs:L.CRS.Simple,
 														minZoom: -10,
@@ -160,10 +149,7 @@ var waitForFinalEvent = (function () {
 			}).each(function() {
 				if (this.complete) { $(this).trigger("load"); }
 			});
-/*
-/*
- *		Window resize handler
- */
+
 			$(window).resize(function() {
 				if (self.ready) {
 					self.resize = true;
@@ -172,9 +158,7 @@ var waitForFinalEvent = (function () {
 				}
 			});
 		},
-/*
- *	View resize - the aim is to keep the view centered on the same location in the original image
- */
+
 		_view_resize: function() {
 			if (this.ready) {
 				var $view = $(this.view),
@@ -192,9 +176,7 @@ var waitForFinalEvent = (function () {
 				});
 			}
 		},
-/*
- *	Remove the plugin
- */
+
 		destroy: function() {
 			$(window).unbind("resize");
 			this.map.remove();
@@ -262,9 +244,7 @@ var waitForFinalEvent = (function () {
 					break;
 			}
 		},
-/*
- *	Test if a relative image coordinate is visible in the current view
- */
+
 		isVisible: function(relx, rely) {
 			var view = this.getView();
 			if (view) {
@@ -273,9 +253,7 @@ var waitForFinalEvent = (function () {
 				return false;
 			}
 		},
-/*
- *	Convert a user supplied zoom to a Leaflet zoom
-*/
+
 		leafletZoom: function(zoom) {
 			if (this.ready && zoom !== undefined) {
 				var img = this.img,
@@ -294,9 +272,7 @@ var waitForFinalEvent = (function () {
 				return undefined;
 			}
 		},
-/*
- *	Get the Leaflet map object
-*/
+
 		getMap: function() {
 			if (this.ready) {
 				return this.map;
@@ -305,12 +281,7 @@ var waitForFinalEvent = (function () {
 				return null;
 			}
 		},
-/*
- *	Get current zoom level
- *	Returned zoom will always be >=1
- *	a zoom of 1 means the entire image is just visible within the viewport
- *	a zoom of 2 means half the image is visible in the viewport etc
-*/
+
 		getZoom: function() {
 			if (this.ready) {
 				var img = this.img,
@@ -330,12 +301,7 @@ var waitForFinalEvent = (function () {
 				return null;
 			}
 		},
-/*
- *	Set the zoom level
- *	Zoom must be >=1
- *	a zoom of 1 means the entire image is just visible within the viewport
- *	a zoom of 2 means half the image is visible in the viewport etc
-*/
+
 		setZoom: function( zoom ) {
 			if (this.ready) {
 				zoom = Math.max(1, zoom);
@@ -384,9 +350,7 @@ var waitForFinalEvent = (function () {
 			}
 			return this;
 		},
-/*
- *	Get relative image coordinates of current view
- */
+
 		getView: function() {
 			if (this.ready) {
 				var img = this.img,
@@ -403,9 +367,7 @@ var waitForFinalEvent = (function () {
 				return null;
 			}
 		},
-/*
- *	Pan the view to be centred at the given relative image location
- */
+
 		panTo: function(relx, rely) {
 			if ( this.ready && relx >= 0 && relx <= 1 && rely >= 0 && rely <=1 ) {
 				var img = this.img,
@@ -446,9 +408,7 @@ var waitForFinalEvent = (function () {
 			}
 			return this;
 		},
-/*
- *	Return the relative image coordinate for a Leaflet event
- */
+
 		eventToImg: function(ev) {
 			if (this.ready) {
 				var img = this.img,
@@ -465,9 +425,7 @@ var waitForFinalEvent = (function () {
 				return null;
 			}
 		},
-/*
- * Convert relative image coordinate to Leaflet LatLng point
- */
+
 		relposToLatLng: function(x,y) {
 			if (this.ready) {
 				var img = this.img,
@@ -478,9 +436,7 @@ var waitForFinalEvent = (function () {
 				return null;
 			}
 		},
-/*
- * Convert relative image coordinate to Image pixel
- */
+
 		relposToImage: function(pos) {
 			if (this.ready) {
 				var img = this.img,
