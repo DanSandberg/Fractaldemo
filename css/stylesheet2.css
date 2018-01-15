@@ -6,7 +6,7 @@ svg {
     animation-name: draw;
     animation-duration: 10s;
     animation-fill-mode: forwards;
-    animation-iteration-count: 1;
+    animation-iteration-count: infinite;
     animation-timing-function: linear;
     float: left;
 
@@ -148,5 +148,8 @@ li a:hover {
     width: 5vw;
     height: 3vh;
     position: fixed;
-    z-index: 3;    
+    z-index: 3;
+    margin-left: 90%;
+    margin-top: 37%;
+    
 }
