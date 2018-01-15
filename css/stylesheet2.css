@@ -1,0 +1,103 @@
+h2 {
+  text-align: center;
+  font-size: 30px;
+  margin: 0;
+  font-weight: 300;
+  color: inherit;
+  padding: 50px;
+}
+
+.center {
+  text-align: center;
+}
+
+section {
+  height: 20vh;
+}
+/* Circle */
+nav.circle ul li a {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+nav.circle ul li a:after {
+  display: block;
+  position: absolute;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '.';
+  color: transparent;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: transparent;
+}
+nav.circle ul li a:hover:after {
+  -webkit-animation: circle 1.5s ease-in forwards;
+}
+
+svg {
+    stroke: #000;
+    stroke-width: 10;
+    stroke-dasharray: 600px;
+    stroke-dashoffset: 600px;
+    animation-name: draw;
+    animation-duration: 10s;
+    animation-fill-mode: forwards; 
+    animation-iteration-count: 1; 
+    animation-timing-function: linear;
+    float: left;
+  
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.rundcontainer{
+    float: left;
+    background-color: red;
+    height: 50vw;
+    width: 50vw;
+    margin-top: 11.2vh;
+    border-radius: 50%;
+    text-align: center;
+    font-family: monospace;
+}
+.rundcontainer h1{
+    margin-top: 5vw;
+}
+.rundcontainer p{
+    padding: 10vw;
+}
+/* Keyframes */
+@-webkit-keyframes circle {
+  0% {
+    width: 1px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    height: 1px;
+    z-index: -1;
+    background: #eee;
+    border-radius: 100%;
+  }
+  100% {
+    background: #aaa;
+    height: 5000%;
+    width: 5000%;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 0;
+  }
+}
